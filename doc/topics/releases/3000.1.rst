@@ -1,0 +1,178 @@
+.. _release-3000-1:
+
+=========================
+Salt 3000.1 Release Notes
+=========================
+
+Version 3000.1 is a bugfix release for :ref:`3000 <release-3000>`.
+
+Statistics
+==========
+
+- Total Merges: **11**
+- Total Issue References: **7**
+- Total PR References: **12**
+
+- Contributors: **7** (`Ch3LL`_, `UtahDave`_, `dwoz`_, `garethgreenaway`_, `s0undt3ch`_, `twangboy`_, `waynew`_)
+
+
+INSERT RELEASE NOTES BODY HERE
+
+
+Changelog for v3000..a204906c80462560553a7d7f38e1dbc17c6db2eb
+=============================================================
+
+*Generated at: 2020-03-10 19:50:29 UTC*
+
+* **PR** `#55888`_: (`s0undt3ch`_) Disable codecov PR comments and status checks
+  @ *2020-03-10 15:45:52 UTC*
+
+  * a204906c80 Merge pull request `#55888`_ from s0undt3ch/hotfix/coverage-reporting
+
+  * 4b8dc8a586 Disable codecov PR comments and status checks
+
+  * cb0f4dff87 Apply the suggestion given by the codecov team
+
+* **ISSUE** `#56177`_: (`jodok`_) mysql states fail because conv is `` instead of None (refs: `#56174`_)
+
+* **ISSUE** `#56170`_: (`jeffdyke`_) mariadb socket access must be enabled before highstate - salt 3K still tries empty password (refs: `#56174`_)
+
+* **ISSUE** `#56124`_: (`ymasson`_) MySQL state and module broken after upgrade to 3000 (refs: `#56174`_)
+
+* **PR** `#56174`_: (`garethgreenaway`_) [master] MySQL module fixes
+  @ *2020-03-10 04:03:23 UTC*
+
+  * 3e913631bb Merge pull request `#56174`_ from garethgreenaway/56124_mysql_module_state_fixes
+
+  * fcc061368b Removing quotes from the plugin_status query.  Updating tests to reflect changes.
+
+  * 3dc66393b2 Adding better error reporting around plugins.  Updating tests.  Only attempt to delete a user if they exist.
+
+  * 1337da1e4e Ensure _mysql_user_exists is using auth_socket.  Updating mysql and mariadb chpass functions to ensure that the respective plugins are enabled before attempting to use them.
+
+  * 34995ba4e8 Reworking the unix_socket code to support the differences between MySQL and MariaDB.  Adding some functions to install, remove, and check the status of plugins which we can then use when adding users which will use the unix_socket & auth_socket plugins. Adding additional tests for these new functions as well as test to ensure the correct SQL is being generated when using passwordless and unix_socket options.
+
+  * 5bfd67c13e Minor tweak to mysql module.  Fixing failing tests.
+
+  * e871a3ffd1 Various fixes to the mysql module to break out the handling of user management into different functions based on MySQL variant.
+
+* **ISSUE** `#56063`_: (`terminalmage`_) [master] Traceback in esxi grain module on import (refs: `#56094`_)
+
+* **PR** `#56094`_: (`dwoz`_) Fix type error in TornadoImporter
+  @ *2020-03-10 01:39:08 UTC*
+
+  * 211c88bfbc Merge pull request `#56094`_ from dwoz/fix_56063
+
+  * 7b1632e8e3 Fix type error in TornadoImporter
+
+* **PR** `#56172`_: (`Ch3LL`_) Only change mine data if using new allow_tgt feature
+  @ *2020-03-10 01:34:27 UTC*
+
+  * fb5252fc53 Merge pull request `#56172`_ from Ch3LL/mine_g
+
+  * f4c9c2a5cf Fix docs
+
+  * 6c914caec8 Use different targeting for windows/linux
+
+  * f6348127dc Only change mine data if using new allow_tgt feature
+
+* **ISSUE** `#56121`_: (`githubcdr`_) salt-minion broken after upgrade to 3000 (refs: `#56143`_)
+
+* **ISSUE** `#51854`_: (`Oloremo`_) Fluorine: minion_pillar_cache: True leads to exception (refs: `#56143`_, `#52195`_)
+
+* **PR** `#56143`_: (`waynew`_) Use encoding when caching pillar data
+  @ *2020-03-10 01:33:37 UTC*
+
+  * **PR** `#52195`_: (`waynew`_) Use encoding when caching pillar data (refs: `#56143`_)
+
+  * 8a8e9c9c5f Merge pull request `#56143`_ from waynew/51854-minion-pillar-cache-exception
+
+  * 58cc9488aa Merge branch 'master' into 51854-minion-pillar-cache-exception
+
+* **PR** `#56082`_: (`Ch3LL`_) Fix saltversioninfo grain for new version
+  @ *2020-03-10 01:32:11 UTC*
+
+  * 9f27caa7d0 Merge pull request `#56082`_ from Ch3LL/ver_grains
+
+  * e6abd6d31b ensure full_info/noc_info work with new versioning
+
+  * bcc520ccc4 Add saltversioninfo grains test
+
+  * 510e149b87 Fix saltversioninfo grain for new version
+
+* **PR** `#56285`_: (`UtahDave`_) Add missing colon.
+  @ *2020-03-09 22:22:17 UTC*
+
+  * 602ff3b9f1 Merge pull request `#56285`_ from UtahDave/fix_f5_doc
+
+  * 1034013831 Add missing colon.
+
+* **PR** `#56333`_: (`Ch3LL`_) add pylint ignore in django returner
+  @ *2020-03-09 20:42:42 UTC*
+
+  * de5184a206 Merge pull request `#56333`_ from Ch3LL/lint_fix
+
+  * 6a213a429a add pylint ignore in django returner
+
+  * 759290a055 Use encoding when caching pillar data
+
+* **ISSUE** `#56080`_: (`sagetherage`_) Update release notes, pip download page and install docs on pycrpto (refs: `#56095`_)
+
+* **PR** `#56095`_: (`waynew`_) Provide security advisory for PyCrypto
+  @ *2020-02-10 18:42:00 UTC*
+
+  * 9adc2214c3 Merge pull request `#56095`_ from waynew/crypto-warning
+
+  * 484bc51f4b Add warnings to a couple of other places
+
+  * 2711c04ca9 Provide security advisory for PyCrypto
+
+* **PR** `#56092`_: (`twangboy`_) Add LGPO and Network PRs to changelogs
+  @ *2020-02-10 18:17:28 UTC*
+
+  * 1acd492bb9 Merge pull request `#56092`_ from twangboy/waynew-update-changelog
+
+  * 4e03620d4e Fix a docs issue
+
+  * e7b64277e1 Add LGPO and Network PRs to changelogs
+
+* **PR** `#56115`_: (`s0undt3ch`_) Add information about the pip install salt on windows issue.
+  @ *2020-02-10 17:33:44 UTC*
+
+  * 65d59b0ee9 Merge pull request `#56115`_ from s0undt3ch/hotfix/release-notes
+
+  * aeac9f36cd Add information about the pip install salt on windows issue.
+
+.. _`#51854`: https://github.com/saltstack/salt/issues/51854
+.. _`#52195`: https://github.com/saltstack/salt/pull/52195
+.. _`#55888`: https://github.com/saltstack/salt/pull/55888
+.. _`#56063`: https://github.com/saltstack/salt/issues/56063
+.. _`#56080`: https://github.com/saltstack/salt/issues/56080
+.. _`#56082`: https://github.com/saltstack/salt/pull/56082
+.. _`#56092`: https://github.com/saltstack/salt/pull/56092
+.. _`#56094`: https://github.com/saltstack/salt/pull/56094
+.. _`#56095`: https://github.com/saltstack/salt/pull/56095
+.. _`#56115`: https://github.com/saltstack/salt/pull/56115
+.. _`#56121`: https://github.com/saltstack/salt/issues/56121
+.. _`#56124`: https://github.com/saltstack/salt/issues/56124
+.. _`#56143`: https://github.com/saltstack/salt/pull/56143
+.. _`#56170`: https://github.com/saltstack/salt/issues/56170
+.. _`#56172`: https://github.com/saltstack/salt/pull/56172
+.. _`#56174`: https://github.com/saltstack/salt/pull/56174
+.. _`#56177`: https://github.com/saltstack/salt/issues/56177
+.. _`#56285`: https://github.com/saltstack/salt/pull/56285
+.. _`#56333`: https://github.com/saltstack/salt/pull/56333
+.. _`Ch3LL`: https://github.com/Ch3LL
+.. _`Oloremo`: https://github.com/Oloremo
+.. _`UtahDave`: https://github.com/UtahDave
+.. _`dwoz`: https://github.com/dwoz
+.. _`garethgreenaway`: https://github.com/garethgreenaway
+.. _`githubcdr`: https://github.com/githubcdr
+.. _`jeffdyke`: https://github.com/jeffdyke
+.. _`jodok`: https://github.com/jodok
+.. _`s0undt3ch`: https://github.com/s0undt3ch
+.. _`sagetherage`: https://github.com/sagetherage
+.. _`terminalmage`: https://github.com/terminalmage
+.. _`twangboy`: https://github.com/twangboy
+.. _`waynew`: https://github.com/waynew
+.. _`ymasson`: https://github.com/ymasson
