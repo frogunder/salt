@@ -185,7 +185,11 @@ if USE_LOAD_BALANCER:
                 "log_queue_level": self.log_queue_level,
             }
 
-        def close(self):
+        def _close(self):
+            """
+            This class is a singleton so close have to be called only once during
+            garbage collection when nobody uses this instance.
+            """
             if self._socket is not None:
                 self._socket.shutdown(socket.SHUT_RDWR)
                 self._socket.close()
@@ -576,7 +580,7 @@ class AsyncTCPPubChannel(
                 yield self.auth.authenticate()
             if self.auth.authenticated:
                 # if this is changed from the default, we assume it was intentional
-                if int(self.opts.get("publish_port", 4505)) != 4505:
+                if int(self.opts.get("publish_port", 4506)) != 4506:
                     self.publish_port = self.opts.get("publish_port")
                 # else take the relayed publish_port master reports
                 else:
@@ -732,7 +736,7 @@ class TCPReqServerChannel(
     @salt.ext.tornado.gen.coroutine
     def handle_message(self, stream, header, payload):
         """
-        Handle incoming messages from underlying tcp streams
+        Handle incoming messages from underylying tcp streams
         """
         try:
             try:
@@ -1166,7 +1170,7 @@ class SaltMessageClient(object):
                 self._connecting_future.set_result(True)
                 break
             except Exception as exc:  # pylint: disable=broad-except
-                log.warning("TCP Message Client encountered an exception %r", exc)
+                log.warn("TCP Message Client encountered an exception %r", exc)
                 yield salt.ext.tornado.gen.sleep(1)  # TODO: backoff
                 # self._connecting_future.set_exception(e)
 

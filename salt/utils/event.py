@@ -60,7 +60,6 @@ import logging
 # Import python libs
 import os
 import time
-from collections.abc import MutableMapping
 from multiprocessing.util import Finalize
 
 # Import salt libs
@@ -84,6 +83,12 @@ import salt.utils.zeromq
 # Import third party libs
 from salt.ext import six
 from salt.ext.six.moves import range
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping
+
 
 log = logging.getLogger(__name__)
 
@@ -391,7 +396,6 @@ class SaltEvent(object):
         if not self.cpub:
             return
 
-        self.subscriber.close()
         self.subscriber = None
         self.pending_events = []
         self.cpub = False
@@ -782,6 +786,9 @@ class SaltEvent(object):
         return self.fire_event(msg, "fire_master", timeout)
 
     def destroy(self):
+        # Do not directly close singleton instances, just set to None
+        self.subscriber = None
+        self.pusher = None
         if self.subscriber is not None:
             self.close_pub()
         if self.pusher is not None:
@@ -1071,7 +1078,7 @@ class AsyncEventPublisher(object):
             return
         self._closing = True
         if hasattr(self, "publisher"):
-            self.publisher.close()
+            self.publisher = None
         if hasattr(self, "puller"):
             self.puller.close()
 

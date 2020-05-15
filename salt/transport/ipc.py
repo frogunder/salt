@@ -198,7 +198,7 @@ class IPCServer(object):
                 # an error code of 0, it's a spurious exception.
                 if exc.errno == 0:
                     log.trace(
-                        "Exception occurred with error number 0, "
+                        "Exception occured with error number 0, "
                         "spurious exception: %s",
                         exc,
                     )
@@ -362,11 +362,14 @@ class IPCClient(object):
 
     # pylint: enable=W1701
 
-    def close(self):
+    def _close(self):
         """
         Routines to handle any cleanup before the instance shuts down.
         Sockets and filehandles should be closed explicitly, to prevent
         leaks.
+
+        This class is a singleton so close have to be called only once during
+        garbage collection when nobody uses this instance.
         """
         if self._closing:
             return
@@ -730,12 +733,16 @@ class IPCMessageSubscriber(IPCClient):
                 yield salt.ext.tornado.gen.sleep(1)
         yield self._read(None, callback)
 
-    def close(self):
+    def _close(self):
         """
         Routines to handle any cleanup before the instance shuts down.
         Sockets and filehandles should be closed explicitly, to prevent
         leaks.
+
+        This class is a singleton so close have to be called only once during
+        garbage collection when nobody uses this instance.
         """
+
         if self._closing:
             return
         super(IPCMessageSubscriber, self).close()
@@ -746,6 +753,16 @@ class IPCMessageSubscriber(IPCClient):
             exc = self._read_stream_future.exception()
             if exc and not isinstance(exc, StreamClosedError):
                 log.error("Read future returned exception %r", exc)
+
+        if not self._closing:
+            IPCClient._close(self)
+            # This will prevent this message from showing up:
+            # '[ERROR   ] Future exception was never retrieved:
+            # StreamClosedError'
+            if self._read_sync_future is not None and self._read_sync_future.done():
+                self._read_sync_future.exception()
+            if self._read_stream_future is not None and self._read_stream_future.done():
+                self._read_stream_future.exception()
 
     # pylint: disable=W1701
     def __del__(self):
