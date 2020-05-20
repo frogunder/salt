@@ -295,7 +295,7 @@ def defined(
     """
     Starts an existing guest, or defines and starts a new VM with specified arguments.
 
-    .. versionadded:: sodium
+    .. versionadded:: 3001
 
     :param name: name of the virtual machine to run
     :param cpu: number of CPUs for the virtual machine to create
@@ -349,7 +349,7 @@ def defined(
 
     :param update: set to ``False`` to prevent updating a defined domain. (Default: ``True``)
 
-        .. deprecated:: sodium
+        .. deprecated:: 3001
 
     .. rubric:: Example States
 
@@ -540,7 +540,7 @@ def running(
     :param update: set to ``True`` to update a defined domain. (Default: ``False``)
 
         .. versionadded:: 2019.2.0
-        .. deprecated:: sodium
+        .. deprecated:: 3001
     :param connection: libvirt connection URI, overriding defaults
 
         .. versionadded:: 2019.2.0
@@ -892,7 +892,7 @@ def network_defined(
     :param username: username to connect with, overriding defaults
     :param password: password to connect with, overriding defaults
 
-    .. versionadded:: sodium
+    .. versionadded:: 3001
 
     .. code-block:: yaml
 
@@ -1105,7 +1105,7 @@ def pool_defined(
     """
     Defines a new pool with specified arguments.
 
-    .. versionadded:: sodium
+    .. versionadded:: 3001
 
     :param ptype: libvirt pool type
     :param target: full path to the target device or folder. (Default: ``None``)
@@ -1609,7 +1609,7 @@ def volume_defined(
                 format: raw
             - nocow: True
 
-    .. versionadded:: Sodium
+    .. versionadded:: 3001
     """
     ret = {"name": name, "changes": {}, "result": True, "comment": ""}
 

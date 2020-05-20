@@ -543,7 +543,7 @@ class AsyncZeroMQPubChannel(
     def destroy(self):
         # Bacwards compat
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Calling {0}.destroy() is deprecated. Please call {0}.close() instead.".format(
                 self.__class__.__name__
             ),
@@ -1176,7 +1176,7 @@ class AsyncReqMessageClientPool(salt.transport.MessageClientPool):
     def destroy(self):
         # Bacwards compat
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Calling {0}.destroy() is deprecated. Please call {0}.close() instead.".format(
                 self.__class__.__name__
             ),
@@ -1262,7 +1262,7 @@ class AsyncReqMessageClient(object):
     def destroy(self):
         # Bacwards compat
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Calling {0}.destroy() is deprecated. Please call {0}.close() instead.".format(
                 self.__class__.__name__
             ),

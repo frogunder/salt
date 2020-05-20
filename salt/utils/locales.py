@@ -36,10 +36,10 @@ def get_encodings():
 
 def sdecode(string_):
     salt.utils.versions.warn_until(
-        "Sodium",
+        "3001",
         "Use of 'salt.utils.locales.sdecode' detected. This function "
         "has been replaced by 'salt.utils.data.decode' as of "
-        "Salt 2019.2.0. This warning will be removed in Salt Sodium.",
+        "Salt 2019.2.0. This warning will be removed in Salt 3001.",
         stacklevel=3,
     )
     return salt.utils.data.decode(string_)
@@ -47,10 +47,10 @@ def sdecode(string_):
 
 def sdecode_if_string(value_):
     salt.utils.versions.warn_until(
-        "Sodium",
+        "3001",
         "Use of 'salt.utils.locales.sdecode_if_string' detected. This "
         "function has been replaced by 'salt.utils.data.decode' as of "
-        "Salt 2019.2.0. This warning will be removed in Salt Sodium.",
+        "Salt 2019.2.0. This warning will be removed in Salt 3001.",
         stacklevel=3,
     )
     return salt.utils.data.decode(value_)

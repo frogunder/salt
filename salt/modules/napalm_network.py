@@ -1951,7 +1951,7 @@ def load_template(
         if template_vars.get(deprecated_arg):
             del template_vars[deprecated_arg]
             salt.utils.versions.warn_until(
-                "Sodium",
+                "3001",
                 (
                     "The '{arg}' argument to 'net.load_template' is deprecated "
                     "and has been ignored"
@@ -2116,8 +2116,8 @@ def load_template(
             )
     else:
         salt.utils.versions.warn_until(
-            "Sodium",
-            "Native NAPALM templates support will be removed in the Sodium "
+            "3001",
+            "Native NAPALM templates support will be removed in the 3001 "
             "release. Please consider using the Salt rendering pipeline instead."
             "If you are using the 'netntp', 'netsnmp', or 'netusers' Salt "
             "State modules, you can ignore this message",

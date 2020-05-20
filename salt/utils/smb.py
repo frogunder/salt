@@ -193,9 +193,9 @@ def get_conn(host="", username=None, password=None, port=445):
     """
     if HAS_IMPACKET and not HAS_SMBPROTOCOL:
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Support of impacket has been depricated and will be "
-            "removed in Sodium. Please install smbprotocol instead.",
+            "removed in 3001. Please install smbprotocol instead.",
         )
     if HAS_SMBPROTOCOL:
         log.info("Get connection smbprotocol")

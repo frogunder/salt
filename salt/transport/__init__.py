@@ -39,7 +39,7 @@ class Channel(object):
     @staticmethod
     def factory(opts, **kwargs):
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Stop using salt.transport.Channel and instead use salt.transport.client.ReqChannel",
             stacklevel=3,
         )

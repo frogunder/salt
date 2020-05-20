@@ -647,13 +647,13 @@ class CkMinions(object):
         """
         if include_localhost is not None:
             salt.utils.versions.warn_until(
-                "Sodium",
+                "3001",
                 "The 'include_localhost' argument is no longer required; any"
                 "connected localhost minion will always be included.",
             )
         if show_ipv4 is not None:
             salt.utils.versions.warn_until(
-                "Sodium",
+                "3001",
                 "The 'show_ipv4' argument has been renamed to 'show_ip' as"
                 "it now also includes IPv6 addresses for IPv6-connected"
                 "minions.",

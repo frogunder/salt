@@ -655,7 +655,7 @@ def fcontext_add_or_delete_policy(
         salt '*' selinux.fcontext_add_or_delete_policy add my-policy
     """
     salt.utils.versions.warn_until(
-        "Sodium",
+        "3001",
         "The 'selinux.fcontext_add_or_delete_policy' module has been deprecated. Please use the "
         "'selinux.fcontext_add_policy' and 'selinux.fcontext_delete_policy' modules instead. "
         "Support for the 'selinux.fcontext_add_or_delete_policy' module will be removed in Salt "

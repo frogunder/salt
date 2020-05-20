@@ -1236,9 +1236,9 @@ def deploy_windows(
 
     if not use_winrm and has_winexe() and not HAS_PSEXEC:
         salt.utils.versions.warn_until(
-            "Sodium",
+            "3001",
             "Support for winexe has been deprecated and will be removed in "
-            "Sodium, please install pypsexec instead.",
+            "3001, please install pypsexec instead.",
         )
 
     starttime = time.mktime(time.localtime())

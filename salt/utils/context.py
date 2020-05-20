@@ -210,10 +210,10 @@ class NamespacedDictWrapper(MutableMapping, dict):
             import salt.utils.versions
 
             salt.utils.versions.warn_until(
-                "Sodium",
+                "3001",
                 "Overriding the class name is no longer supported. Please "
                 "remove the override_name argument before it is removed in "
-                "Salt Sodium.",
+                "Salt 3001.",
             )
         super(NamespacedDictWrapper, self).__init__(self._dict())
 
