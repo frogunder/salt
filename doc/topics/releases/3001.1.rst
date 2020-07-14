@@ -1,0 +1,226 @@
+.. _release-3001-1:
+
+=========================================
+Salt 3001.1 Release Notes - Codename Sodium
+=========================================
+
+Version 3001.1 is a bugfix release for :ref:`3001 <release-3001>`.
+
+Statistics
+==========
+
+- Total Merges: **0**
+- Total Issue References: **0**
+- Total PR References: **0**
+
+- Contributors: **0** ()
+
+
+
+Changelog for v3001..9b47f9c6cc83493c67b12152d26cc454ceaf8736
+=============================================================
+
+*Generated at: 2020-07-14 01:06:51 UTC*
+
+* 9b47f9c6cc Restore "gid_from_name" and put on a deprecation path
+
+* c1f6ebadab Fix dict being changed during iteration
+
+* 8b1ec71879 Add winrepo_fallback option
+
+* 3944fd08fc Don't fail when `--from-filenames` is passed `salt/__init__.py`
+
+* d79f3e4718 Remove Sodium related deprecation warnings
+
+* a1e2e401bd Partially revert "Port `#53452`_ to master"
+
+* c1bc4295ef Fix tuned module on RHEL/CentOS 7.8
+
+* ade7a09205 Fix sorting issues on `x509.certificate_managed` triggering unnecessary changes
+
+* 7493fdb4d3 Show changes from file.managed in test=True output
+
+* 625f3ef3d1 Don't show the certificate as changed if the file.managed call fails
+
+* 21b6ae2406 Always run file.managed on x509 certificates
+
+* 0371573e53 Add failing test for file attributes in x509.certificate_managed
+
+* b1af5c64c5 Added changelog
+
+* db131ff69a Provide user to version command as well
+
+* d3c4e79665 Allow user in version command
+
+* 6bd06751b5 Add runas to updgrade command
+
+* fec3c93e4e Use atomic open to write cache
+
+* 219932c4be Add tests for GPG cache
+
+* 04c091f80e small fix
+
+* 3d84d61cec fix tests for win
+
+* 337c69e4d3 fix tests
+
+* 6f7baf76cb fix window pid 5 and remvoe tests
+
+* 8c7d5ed280 remove a print
+
+* 512d794141 clean up minion start
+
+* 6d9df8e8e7 Add changelog
+
+* a77c0fbe24 Add trailing newline
+
+* cffe64fb87 Fix plugins path
+
+* c1854f9411 Add NSISPluginsDirA and NSISPluginsDirU
+
+* e3c7757a77 Make sure bin directory is present
+
+* 43f281901b Unzip UCRT to python root
+
+* c43701ed1b Remove KB from build scripts
+
+* b45f7524b8 Renamed test file to allow for  BadTestModuleNamesTestCase
+
+* 9ddd8f907f Update for pre-commit changes
+
+* a8795b53c3 Updated for pre-commit and docs
+
+* f2f48b2af8 Tests for package signing for Redhat 7, 8 and Amazon Linux 2
+
+* 42b6dae529 [WIP] Updated rpmbuild module works with RHEL 8 and 7
+
+* 9dd299bb86 [WIP]  resolving issues
+
+* cd94e85fdf [WIP] signing RHEL 7 & 8 rpms
+
+* 887007ec58 [WIP] Package signing test for RHEL 8,7 and Amazon 2
+
+* cd90e55fae [WIP] base level before writing tests
+
+* 3cd9549878 Adding changelog file
+
+* 356757b267 The fail_with_changes state should use the comment argument when passed.  Additional tests.
+
+* 6a4c534024 fix english
+
+* c1e10850fb fix ut corresponding to code changes in lib
+
+* baaacf06b1 feedback from saltstack wrt to dirs
+
+* afc39d80d4 add unit test for bug fix
+
+* 7957c2d314 handle config load error when cache is not avialable for first time
+
+* b381a4d7e2 add a test to make sure we still fail with a retcode of 36 on non bootout cmds
+
+* 929a22982d add tests for skipping ignoring a retcode on launchctl bootout
+
+* 330d49ac52 add fix for when launchctl bootout returns a non zero retcode on some services
+
+* 42eeccf8b6 Add changelog
+
+* 7d73cc6daf black
+
+* e8052292c3 Fix expected comment
+
+* 18fee10c42 Fix expected changes
+
+* bf240b0475 Fix return with failures
+
+* 50e4534832 Add test for failure
+
+* a102ebd8af Fix changes
+
+* 0da7c57960 Fix return dict
+
+* a44723ddfa Use dict for expected result
+
+* 1f7dbef614 Fix typo
+
+* f6fd16ea03 Use container settings
+
+* faa77c3744 Redact password in container settings states
+
+* 1b21bcc02f Changes the 'SSDs' grain name to 'ssds'
+
+* 5493a50942 Added the Changelog entry for fix 57612
+
+* 33ba6c3bc1 Added autospec=True to test_disks.py unit test
+
+* f70044c297 Added unit tests for disks._linux_disks
+
+* d60288ad77 Fix grains/disks.py to show only the real disks
+
+* 147cd1e825 Update dpkg_lowpkg to handle deb files that have spaces in `dpkg -I` output (`#54740`_)
+
+* cf4054e8d4 fixes `#57795`_ adds require docs to cloud maps
+
+* de2fde5d3b Resolve paths when checking from filenames functionality.
+
+* 4148d557dd Fixing a typo, the first checkout should return an empty dict not None if opts does not include proxy.
+
+* 0ddb93995b Requested changes.  Additional test for the False state.
+
+* cedcddeac0 requested changes.
+
+* 0e32651b59 Adding changelog file.
+
+* 1407a39238 moving import salt.modules.vsphere into virtual so we have access to test proxytype in opts.  Gating the check with salt.utils.proxy.is_proxytype.  Adding tests.
+
+* faf099c8f7 remove duplicate line
+
+* cbbfad6cde Test illumos virtual == zone grains paths
+
+* 95eda904fc [Fix] `#57714`_ virtual grain should work on illumos
+
+* ee073e66a8 Add if else to address when more than one package is present
+
+* 66db008677 Fix test tmp dir name
+
+* 541306b5e1 Fix test_mode and add tests for pip state
+
+* b9ceb89e9d [`#56901`_] network.managed state failed to bring down lo ip alias
+
+* fd57240894 [master] Fix to thin.generate runner function (`#56610`_)
+
+* 6e82e9c080 Fix imports
+
+* c4bd846b91 Run boto_route53 test on Python 3.7+
+
+* 6bc6361b6a Fix incorrect versionadded tag syntax
+
+* 8980dd75a4 Sysctl ignore flag was added in Sodium (not Neon)
+
+* 7f7dd97ae3 Replace Sodium with 3001 for new master niceness settings
+
+* b618372624 Fix deprecation note for old module.run syntax
+
+* 5f84c88759 Add documentation for double-indentation of multi-line strings
+
+* f085b0f205 Dropped != Deprecated
+
+* ddb0471636 Fix typo by adding device_write_iops in documentation.
+
+* e60900b9fe Update links to Jinja docs
+
+* f6d01370a7 fix docs
+
+* 5fca447692 Added versionadded
+
+* 81a34f0d5a Whoops this is important to add
+
+* 603e87da66 Add password arg to cmd state and tests
+
+* 1f1e114719 Temporary skip to get centos 8 tests to pass
+
+.. _`#53452`: https://github.com/saltstack/salt/pull/53452
+.. _`#54740`: https://github.com/saltstack/salt/pull/54740
+.. _`#56610`: https://github.com/saltstack/salt/pull/56610
+.. _`#56901`: https://github.com/saltstack/salt/issues/56901
+.. _`#57714`: https://github.com/saltstack/salt/issues/57714
+.. _`#57795`: https://github.com/saltstack/salt/issues/57795
